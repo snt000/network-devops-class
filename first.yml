@@ -1,0 +1,10 @@
+---
+- name: Manage GNS3 devices
+  hosts: j1
+  gather_facts: false
+
+  tasks:
+    - name: easy
+      raw: "show version"
+      register: cmd_output
+    - debug: var=cmd_output.stdout_lines

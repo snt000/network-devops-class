@@ -1,0 +1,23 @@
+---
+ - name: BUILD AND PUSH NETWORK CONFIGURATION FILES
+   hosts: core
+   connection: local
+   gather_facts: no
+   vars:
+     un: "steve"
+     pwd: "cisco"
+     os: "ios"
+   tasks:
+     - name: BUILD CONFIGS
+       template:
+         src=templates/core.j2
+         dest=configs/{{inventory_hostname }}.conf
+     - name: PUSH CONFIGS
+       napalm_install_config:
+         hostname={{ inventory_hostname }}
+         username={{ un }}
+         password={{ pwd }}
+         dev_os={{ os }}
+         config_file=configs/{{ inventory_hostname }}.conf
+         commit_changes=1
+         replace_config=0

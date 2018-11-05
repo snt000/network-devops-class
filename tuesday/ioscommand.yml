@@ -1,0 +1,12 @@
+---
+ - name: ios play
+   hosts: switches
+   gather_facts: no
+   connection: local
+   tasks:
+    - name: IOS | Show ver
+      ios_command:
+        commands:
+          - show version
+      register: clock
+    - debug: msg="{{ clock.stdout }}"

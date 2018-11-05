@@ -1,0 +1,10 @@
+---
+ - name: ios play
+   hosts: s1
+   gather_facts: no
+   connection: local
+   tasks:
+    - name: check against master
+      ios_config:
+        diff_config: intended
+        intended_config: "{{ lookup('file', 'master.cfg') }}"

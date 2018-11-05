@@ -1,0 +1,21 @@
+---
+ - name: napalm get facts
+   hosts: s1
+   gather_facts: no
+   connection: local
+   vars:
+      host: "{{ inventory_hostname }}"
+      user: "steve"
+      passwd: "cisco"
+   tasks:
+    - name: get facts from device
+      napalm_get_facts:
+         hostname={{ inventory_hostname }}
+         username={{ user }}
+         dev_os="ios"
+         password={{ passwd }}
+         filter='facts,interfaces,bgp_neighbors'
+      register: result
+
+    - name: print data
+      debug: var=result

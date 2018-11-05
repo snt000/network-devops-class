@@ -1,0 +1,21 @@
+---
+- name: Manage GNS3 devices
+  hosts: switches
+  gather_facts: false
+  vars:
+    ansible_user: steve
+    ansible_ssh_pass: cisco
+  tasks:
+    - name: "
+	easy
+	example name over two lines
+	"
+      raw: "show cdp neighbor"
+
+#    - name: second >
+#      raw: "sh run"
+      register: cmd_output
+
+    - debug: var=cmd_output.stdout_lines
+
+

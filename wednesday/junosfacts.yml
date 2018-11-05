@@ -1,0 +1,16 @@
+---
+ - name: ios play
+   hosts: j2
+   gather_facts: no
+   connection: local
+#   vars:
+     #cli:
+      #host: "{{ inventory_hostname }}"
+      #username: lab
+      #password: lab123
+      #tansport: cli
+   tasks:
+    - name: IOS | Show ver
+      junos_facts:
+      register: out
+#    - debug: var=out

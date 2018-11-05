@@ -1,0 +1,14 @@
+---
+ - name: ios play
+   hosts: j1
+   gather_facts: no
+   connection: local
+   tasks:
+    - name: run multiple commands on remote nodes
+      junos_command:
+        commands:
+          - show version
+          - show interfaces
+        display: text
+      register: output
+    - debug: var=output

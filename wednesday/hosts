@@ -1,0 +1,9 @@
+[switches]
+s1
+s2
+s3
+[juniper]
+j1
+j2
+[routers]
+r1

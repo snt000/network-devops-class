@@ -1,0 +1,19 @@
+---
+- name: Junos
+  hosts: j2
+  gather_facts: false
+  connection: local
+#  roles:
+#  Juniper.junos
+#  vars:
+#   ansible_user: alex
+ 
+  tasks:
+   - name: show conf
+     junos_facts:
+      gather_subset: config
+     register: srx_config
+#   - name: print
+#     debug: msg"{{srx_config}}"
+      debug: var=srx_config
+

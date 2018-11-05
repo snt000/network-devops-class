@@ -1,0 +1,12 @@
+---
+- name: Testing Junos show commands
+  hosts: j3
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Do a quick show conf
+      junos_command:
+        commands: show configuration
+        display: set
+      register: out
+    - debug: msg={{out.stdout_lines}}

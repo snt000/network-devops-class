@@ -1,0 +1,9 @@
+---
+ - name: ios play
+   hosts: s1
+   gather_facts: no
+   connection: local
+   tasks:
+    - name: check against running
+      ios_config:
+        diff_against: startup

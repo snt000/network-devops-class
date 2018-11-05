@@ -1,0 +1,19 @@
+---
+- name: Manage GNS3 devices
+  hosts: j1
+  gather_facts: false
+
+  tasks:
+    - name: "
+	easy
+	example name over two lines
+	"
+      raw: "show version"
+
+    - name: second >
+      raw: "sh arp"
+      register: cmd_output
+
+    - debug: var=cmd_output.stdout_lines
+
+

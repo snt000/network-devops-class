@@ -1,0 +1,20 @@
+---
+- name: Manage GNS3 devices
+  hosts: switches
+  gather_facts: false
+
+  tasks:
+    - name: "
+	easy
+	example name over two lines
+	"
+      raw: "show cdp neighbor"
+
+#    - name: second >
+#      raw: "sh run"
+      #register: cmd_output
+
+    #- debug: "{{ inventory_hostname }}"
+    - debug: 
+
+

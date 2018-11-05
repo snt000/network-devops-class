@@ -1,0 +1,17 @@
+---
+- name: Manage GNS3 devices
+  hosts: s1
+  gather_facts: false
+
+  tasks:
+    - name: easy
+      raw: "show cdp neighbor"
+
+    - name: second >
+#name spread
+      raw: "sh run"
+      register: cmd_output
+
+#    - debug: var=cmd_output.stdout_lines
+
+
